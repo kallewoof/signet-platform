@@ -28,6 +28,11 @@ RUN git clone https://github.com/kallewoof/bitcoin-faucet.git /srv/faucet
 
 WORKDIR /srv/faucet
 
+ARG COMMIT=master
+
+RUN git pull \
+ && git checkout $COMMIT
+
 SHELL ["/bin/bash", "-c"]
 
 # required to run some scripts as root (needed for docker)
