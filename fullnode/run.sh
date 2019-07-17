@@ -18,7 +18,7 @@
 #
 #   $HOME/docker-signet
 
-set -e
+set -e -a
 
 imagename="kallewoof/signet:0.18"
 datadirmp=$HOME/docker-signet
