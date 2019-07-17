@@ -15,4 +15,6 @@ set -e
 
 if [ $# -gt 0 ]; then echo "syntax: $0 takes no arguments; modify docker-compose.yml to your needs"; exit 1; fi
 
+if [ -e "config.rc" ]; then source config.rc; else source config.sample.rc; fi
+
 docker-compose up
