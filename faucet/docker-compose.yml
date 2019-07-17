@@ -1,0 +1,49 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
+
+  mongo:
+    image: mongo
+    expose:
+      - "27017" # mongo
+
+  signet:
+    restart: unless-stopped
+    image: kallewoof/signet:0.18
+    environment:
+      BITCOIN_NETWORK: signet
+      BITCOIN_EXTRA_ARGS: |-
+        rpcuser=fhakt7wa83ha
+        rpcpassword=fhawkg98;atj
+        rpcport=43782
+        rpcbind=0.0.0.0:43782
+        port=39388
+        whitelist=0.0.0.0/0
+        zmqpubrawblock=tcp://0.0.0.0:28332
+        zmqpubrawtx=tcp://0.0.0.0:28333
+    ports: 
+      - "43782:43782"
+    expose:
+      - "43782" # RPC
+      - "39388" # P2P
+      - "28332" # ZMQ
+      - "28333" # ZMQ
+    volumes:
+      - $HOME/bitcoin_datadir:/root/.bitcoin
+
+  faucet:
+    image: kallewoof/signet-faucet:0.18
+    environment:
+      MONGODB_HOST: mongo
+      BITCOIND_HOST: signet
+      BITCOIND_PORT: 43782
+      BITCOIND_USER: 'fhakt7wa83ha'
+      BITCOIND_PASS: 'fhawkg98;atj'
+    expose:
+      - "8123" # faucet
