@@ -4,7 +4,15 @@
 #
 #   docker build -t SOMENAME .
 #
+# or
+#
+#   ./build.sh SOMENAME
+#
 # and then call this script with SOMENAME as the first argument.
+#
+# SOMENAME defaults to kallewoof/signet:0.18 in both the build.sh and
+# run.sh cases.
+#
 # You can also choose the directory to map the bitcoin data directory to,
 # as the second argument. This defaults to
 #
