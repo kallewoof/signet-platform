@@ -52,5 +52,6 @@ services:
       FAUCET_WEEK_MAX: ${FAUCET_WEEK_MAX}
       FAUCET_MIN: ${FAUCET_MIN}
       FAUCET_HOUR_SPLIT: ${FAUCET_HOUR_SPLIT}
+      FAUCET_PASSWORD: ${FAUCET_PASSWORD}
     expose:
       - "8123" # faucet
