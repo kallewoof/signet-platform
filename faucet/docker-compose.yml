@@ -45,5 +45,10 @@ services:
       BITCOIND_PORT: 43782
       BITCOIND_USER: 'fhakt7wa83ha'
       BITCOIND_PASS: 'fhawkg98;atj'
+      FAUCET_HOUR_MAX: '1.0'
+      FAUCET_DAY_MAX: '5.0'
+      FAUCET_WEEK_MAX: '10.0'
+      FAUCET_MIN: '10'
+      FAUCET_HOUR_SPLIT: '100'
     expose:
       - "8123" # faucet
