@@ -24,13 +24,14 @@ services:
         rpcuser=fhakt7wa83ha
         rpcpassword=fhawkg98;atj
         rpcport=43782
+        rpcallowip=0.0.0.0/0
         rpcbind=0.0.0.0:43782
         port=39388
         whitelist=0.0.0.0/0
         zmqpubrawblock=tcp://0.0.0.0:28332
         zmqpubrawtx=tcp://0.0.0.0:28333
     ports: 
-      - "43782:43782"
+      - 43782:43782
     expose:
       - "43782" # RPC
       - "39388" # P2P
