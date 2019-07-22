@@ -46,7 +46,16 @@ Faucet will become functional as soon as the next block is mined. It will by def
 
 # Block explorer
 
-Coming soon.
+You can set up your own personal explorer.
+
+```Bash
+$ cd explorer
+$ docker-compose up
+```
+
+In a browser, go to http://localhost/ to see the Explorer.
+
+Note: this only works with localhost, without reverse proxy grokkery.
 
 # Lightning node
 
