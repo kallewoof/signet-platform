@@ -3,26 +3,14 @@
 FROM debian:stretch-slim
 
 # TODO: weed out unnecessary deps
-RUN apt-get -yqq update \
-    && apt-get -yqq install \
-        build-essential \
+RUN apt-get -yq update \
+    && apt-get -yq install \
         curl \
-        git \
-        libcairo2-dev \
-        libgif-dev \
-        libjpeg-dev \
-        libnginx-mod-http-lua \
-        libpixman-1-dev \
-        pkg-config \
-        procps \
-        python \
-        runit \
-        socat \
-        tor
+        git
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
-RUN apt-get install nodejs
+RUN apt-get install -yq nodejs
 
 RUN git clone https://github.com/kallewoof/bitcoin-faucet.git /srv/faucet
 
