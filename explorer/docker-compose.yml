@@ -64,6 +64,9 @@ services:
     environment:
       PORT: 5000
       API_URL: http://localhost/api/
+      NATIVE_ASSET_LABEL: sBTC
+      SITE_TITLE: Signet Block Explorer
+      SITE_DESC: Esplora Signet Block Explorer
     command: npm run dev-server
     links:
       - explorer_backend
