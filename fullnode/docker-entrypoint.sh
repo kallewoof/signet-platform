@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Source: https://github.com/ruimarinho/docker-bitcoin-core/blob/master/0.18/docker-entrypoint.sh
 
 set -e
