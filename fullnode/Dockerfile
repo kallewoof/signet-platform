@@ -38,7 +38,7 @@ RUN  ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB
 
 RUN V=1 make clean
 
-RUN V=1 make -j4
+RUN V=1 make -j2
 
 RUN make install
 
