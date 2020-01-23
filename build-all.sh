@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "*** FULL NODE ***"
 
 cd fullnode
