@@ -14,6 +14,6 @@ for i in */docker-compose.yml */*.sh fullnode/Dockerfile; do
     sed "s~https://github.com/kallewoof/bitcoin.git~$2~g" new1.$n > new2.$n
     if [ $? -ne 0 ]; then echo 'failed to patch $i'; exit 1; fi
     sed "s~--branch signet-0.18~--branch $3~g" new2.$n > new3.$n
-    mv new3.$n $i
+    cat new3.$n > $i
     rm new[123].$n
 done
