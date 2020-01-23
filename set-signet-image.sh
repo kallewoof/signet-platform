@@ -7,7 +7,7 @@ if [ $# -ne 4 ]; then
     exit 1
 fi
 
-for i in */docker-compose.yml */*.sh fullnode/Dockerfile; do
+for i in */docker-compose.yml */*.sh */*/*.sh fullnode/Dockerfile; do
     n=$(basename i)
     sed "s~kallewoof/signet:0.18~$1:$2~g" $i > new1.$n
     if [ $? -ne 0 ]; then echo 'failed to patch $i'; exit 1; fi
