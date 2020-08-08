@@ -20,7 +20,7 @@
 
 set -e -a
 
-imagename="kallewoof/signet:0.18"
+imagename="kallewoof/signet:0.20"
 datadirmp=$HOME/docker-signet
 
 if [ $# -gt 0 ]; then imagename=$1; shift; fi
