@@ -7,11 +7,17 @@ RUN chmod +x /usr/bin/lightning*
 
 COPY ./config /root/.lightning/config
 
+RUN apt-get update -y \
+    && apt-get install -y \
+        libsqlite3-dev \
+        libpq-dev \
+        libsodium-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 ENV LIGHTNING_DATA=/root/.lightning
 
 RUN mkdir -p ${LIGHTNING_DATA}
-
-COPY docker-entrypoint.sh /entrypoint.sh
 
 EXPOSE 9735
 
