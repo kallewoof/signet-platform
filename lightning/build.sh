@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Build the signet full node docker image
-# Takes image name as first argument, which defaults to
 #
-#   kallewoof/signet:0.20
+#   c-lightning
 
-imagename="kallewoof/signet:0.20"
+imagename="c-lightning"
 
 if [ $# -gt 0 ]; then imagename=$1; shift; fi
 if [ $# -gt 0 ]; then echo "syntax: $0 [<image name>]"; exit 1; fi

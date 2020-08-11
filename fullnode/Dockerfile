@@ -24,9 +24,13 @@ RUN apt-get update -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN git clone https://github.com/kallewoof/bitcoin.git --branch signet-0.18 /workspace
+RUN git clone https://github.com/bitcoin/bitcoin /workspace
 
 WORKDIR /workspace
+
+RUN git fetch origin pull/16411/head:signet
+
+RUN git checkout signet
 
 RUN ./contrib/install_db4.sh `pwd`
 
@@ -63,7 +67,7 @@ COPY --from=builder "/workspace/build/bin" /usr/local/bin
 
 COPY --from=builder /workspace/contrib /workspace/contrib
 
-ENV BITCOIN_VERSION=0.18.0
+ENV BITCOIN_VERSION=0.20.0
 ENV BITCOIN_DATA=/root/.bitcoin
 ENV PATH=/workspace/contrib/signet:$PATH
 
