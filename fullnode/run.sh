@@ -10,7 +10,7 @@
 #
 # and then call this script with SOMENAME as the first argument.
 #
-# SOMENAME defaults to kallewoof/signet:0.18 in both the build.sh and
+# SOMENAME defaults to kallewoof/bitcoin:0.21 in both the build.sh and
 # run.sh cases.
 #
 # You can also choose the directory to map the bitcoin data directory to,
@@ -20,7 +20,7 @@
 
 set -e -a
 
-imagename="kallewoof/signet:0.18"
+imagename="kallewoof/bitcoin:0.21"
 datadirmp=$HOME/docker-signet
 
 if [ $# -gt 0 ]; then imagename=$1; shift; fi

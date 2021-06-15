@@ -16,7 +16,7 @@ services:
 
   signet:
     restart: unless-stopped
-    image: kallewoof/signet:0.18
+    image: kallewoof/bitcoin:0.21
     environment:
       BITCOIN_NETWORK: signet
       BITCOIN_EXTRA_ARGS: |-
