@@ -1,4 +1,6 @@
 version: '3'
+env_file:
+  - .env
 services:
   nginx:
     image: nginx:latest
@@ -21,8 +23,8 @@ services:
     environment:
       BITCOIN_NETWORK: signet
       BITCOIN_EXTRA_ARGS: |-
-        rpcuser=fhakt7wa83ha
-        rpcpassword=fhawkg98;atj
+        rpcuser=${BTC_RPC_USER}
+        rpcpassword=${BTC_RPC_PASS}
         rpcport=43782
         rpcallowip=0.0.0.0/0
         rpcbind=0.0.0.0:43782
@@ -46,8 +48,8 @@ services:
       MONGODB_HOST: mongo
       BITCOIND_HOST: signet
       BITCOIND_PORT: 43782
-      BITCOIND_USER: 'fhakt7wa83ha'
-      BITCOIND_PASS: 'fhawkg98;atj'
+      BITCOIND_USER: ${BTC_RPC_USER}
+      BITCOIND_PASS: ${BTC_RPC_PASS}
       FAUCET_HOUR_MAX: ${FAUCET_HOUR_MAX}
       FAUCET_DAY_MAX: ${FAUCET_DAY_MAX}
       FAUCET_WEEK_MAX: ${FAUCET_WEEK_MAX}
